@@ -7,7 +7,13 @@
 #include <objidl.h>
 #include <commctrl.h>
 #include <dwmapi.h>
+#include <algorithm>
+using std::min;
+using std::max;
+#pragma warning(push)
+#pragma warning(disable: 4458)
 #include <gdiplus.h>
+#pragma warning(pop)
 #include <new>
 #include <algorithm>
 static HRESULT ApplyInstallerDwmFrame(HWND window) {

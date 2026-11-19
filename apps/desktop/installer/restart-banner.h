@@ -102,6 +102,9 @@ static void InstallerStyleRestartBanner(HWND window, LPCWSTR text,
     SetWindowLongPtrW(window, GWL_EXSTYLE, GetWindowLongPtrW(window, GWL_EXSTYLE) &
         ~(WS_EX_DLGMODALFRAME | WS_EX_WINDOWEDGE));
     const BOOL dark = background != RGB(255, 255, 255);
+#ifndef DWMWA_USE_IMMERSIVE_DARK_MODE
+#define DWMWA_USE_IMMERSIVE_DARK_MODE 20
+#endif
     DwmSetWindowAttribute(window, DWMWA_USE_IMMERSIVE_DARK_MODE, &dark, sizeof(dark));
     ApplyInstallerDwmFrame(window);
     RECT client{}, outer{};
